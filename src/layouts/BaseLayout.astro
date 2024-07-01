@@ -1,0 +1,92 @@
+---
+import Sidebar from "../components/Sidebar.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<!doctype html>
+<html lang="en" class="bg-black">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Clon - by: wuiquique</title>
+  </head>
+  <body>
+    <div id="app" class="relative h-screen p-2 gap-2">
+      <aside class="[grid-area:aside] flex flex-col overflow-y-auto">
+        <Sidebar />
+      </aside>
+
+      <main class="[grid-area:main] rounded-lg bg-colorbg-card overflow-y-auto">
+        MAIN
+      </main>
+
+      <footer class="[grid-area:footer] min-h-[100px]">PLAYER</footer>
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  html {
+    font-family: "CircularStd", system-ui, sans-serif;
+  }
+
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Book.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "CircularStd";
+    src: url("/fonts/CircularStd-Black.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
+
+<style>
+  #app {
+    display: grid;
+    grid-template-areas:
+      "aside main main"
+      "footer footer footer";
+    grid-template-columns: 350px 1fr;
+    grid-template-rows: 1fr auto;
+    height: 100vh;
+  }
+
+  aside {
+    height: 100%;
+  }
+
+  main {
+    overflow-y: auto;
+  }
+</style>

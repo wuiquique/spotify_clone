@@ -1,0 +1,37 @@
+---
+import HomeIcon from "../Icons/HomeIcon.astro";
+import SideItem from "./SideItem.astro";
+import SearchIcon from "../Icons/SearchIcon.astro";
+import LibraryIcon from "../Icons/LibraryIcon.astro";
+import SidePlaylist from "./SidePlaylist.astro";
+
+import { data } from "../lib/data";
+---
+
+<nav class="flex flex-col gap-2 h-full">
+  <div class="bg-colorbg-card rounded-lg p-2">
+    <ul>
+      <SideItem href="/">
+        <HomeIcon />
+        Home
+      </SideItem>
+      <SideItem href="/">
+        <SearchIcon />
+        Search
+      </SideItem>
+    </ul>
+  </div>
+  <div class="bg-colorbg-card rounded-lg p-2 flex flex-col flex-1">
+    <ul>
+      <SideItem href="/">
+        <LibraryIcon />
+        Library
+      </SideItem>
+    </ul>
+    <div class="overflow-y-auto">
+      <ul>
+        {data.map((playlist) => <SidePlaylist data={playlist} />)}
+      </ul>
+    </div>
+  </div>
+</nav>

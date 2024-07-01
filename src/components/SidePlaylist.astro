@@ -1,0 +1,82 @@
+---
+import FolderIcon from "../Icons/FolderIcon.astro";
+import RightArrowIcon from "../Icons/RightArrowIcon.astro";
+
+const { data } = Astro.props;
+
+let artistsFormat = "";
+if (data.type === "playlist" || data.type === "album") {
+  const lf = new Intl.ListFormat("en");
+  artistsFormat = lf.format(data.artists);
+}
+---
+
+<a
+  href={data.type === "playlist"
+    ? `/playlist/${data.id}`
+    : data.type === "artist"
+      ? `/artist/${data.id}`
+      : data.type === "album"
+        ? `/album/${data.id}`
+        : data.type === "folder"
+          ? `/folder/${data.id}`
+          : "/"}
+  class="flex relative p-2 overflow-hidden item-center gap-4 rounded-md hover:bg-colorbg-card-hover"
+>
+  <picture class="w-12 h-12">
+    {
+      data.type === "playlist" || data.type === "album" ? (
+        <img
+          src={data.cover}
+          alt={`Cover of ${data.title} by ${artistsFormat}`}
+          class="object-cover rounded-md w-full h-full"
+        />
+      ) : data.type === "artist" ? (
+        <img
+          src={data.img}
+          alt={`Image of ${data.name}`}
+          class="object-cover rounded-full w-full h-full"
+        />
+      ) : data.type === "folder" ? (
+        <div class="bg-colorbg-folder object-cover rounded-md w-full h-full flex justify-center items-center fill-color-basic-text">
+          <FolderIcon />
+        </div>
+      ) : null
+    }
+  </picture>
+  <div class="flex flex-auto flex-col truncate">
+    <h4 class="text-white font-light">
+      {
+        data.type === "playlist" || data.type === "album"
+          ? data.title
+          : data.type === "artist" || data.type === "folder"
+            ? data.name
+            : null
+      }
+    </h4>
+    <p class="text-color-basic-text">
+      {
+        data.type === "playlist"
+          ? artistsFormat
+          : data.type === "artist"
+            ? "Artist"
+            : data.type === "album"
+              ? `Album · ${artistsFormat}`
+              : data.type === "folder"
+                ? `${data.playlistCount} playlist${data.playlistCount > 1 ? "s" : ""}`
+                : null
+      }
+    </p>
+  </div>
+  {data.type === "folder" ? (
+    <div class="fill-color-basic-text hover:fill-white flex justify-center items-center -rotate-90">
+        <RightArrowIcon />
+    </div>
+  ) : null}
+</a>
+
+<style>
+  p {
+    font-size: 0.875rem;
+  }
+</style>
