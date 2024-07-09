@@ -8,6 +8,7 @@ export default {
         "colorbg-card-hover": "rgb(25, 25, 25)",
         "color-basic-text": "rgb(170, 170, 170)",
         "colorbg-folder": "rgb(36, 36, 36)",
+        "spotify-green": "rgb(0, 201, 92)",
       },
     },
   },

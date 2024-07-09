@@ -12,7 +12,7 @@ if (data.type === "playlist" || data.type === "album") {
 ---
 
 <a
-  href={data.type === "playlist"
+  href={data.type === "playlist" || data.type === "liked"
     ? `/playlist/${data.id}`
     : data.type === "artist"
       ? `/artist/${data.id}`
@@ -25,7 +25,9 @@ if (data.type === "playlist" || data.type === "album") {
 >
   <picture class="w-12 h-12">
     {
-      data.type === "playlist" || data.type === "album" ? (
+      data.type === "playlist" ||
+      data.type === "album" ||
+      data.type === "liked" ? (
         <img
           src={data.cover}
           alt={`Cover of ${data.title} by ${artistsFormat}`}
@@ -47,7 +49,9 @@ if (data.type === "playlist" || data.type === "album") {
   <div class="flex flex-auto flex-col truncate">
     <h4 class="text-white font-light">
       {
-        data.type === "playlist" || data.type === "album"
+        data.type === "playlist" ||
+        data.type === "album" ||
+        data.type === "liked"
           ? data.title
           : data.type === "artist" || data.type === "folder"
             ? data.name
@@ -64,15 +68,19 @@ if (data.type === "playlist" || data.type === "album") {
               ? `Album · ${artistsFormat}`
               : data.type === "folder"
                 ? `${data.playlistCount} playlist${data.playlistCount > 1 ? "s" : ""}`
-                : null
+                : data.type === "liked"
+                  ? `${data.songCount} songs`
+                  : null
       }
     </p>
   </div>
-  {data.type === "folder" ? (
-    <div class="fill-color-basic-text hover:fill-white flex justify-center items-center -rotate-90">
+  {
+    data.type === "folder" ? (
+      <div class="fill-color-basic-text hover:fill-white flex justify-center items-center -rotate-90">
         <RightArrowIcon />
-    </div>
-  ) : null}
+      </div>
+    ) : null
+  }
 </a>
 
 <style>

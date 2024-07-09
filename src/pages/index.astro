@@ -1,7 +1,21 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro"
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BackgroundGradient from "../components/BackgroundGradient.jsx";
+
+import { data } from "../lib/data";
+
+let color = data[0].mainColor;
+
+const setColor = (valor) => {
+  color = valor;
+};
 ---
 
 <BaseLayout>
- ola
+  <div id="main-container" class="relative transition-all duration-1000">
+    <!-- Rect Data -->
+    <BackgroundGradient data={data} client:load />
+      <!-- Nav -->
+      
+  </div>
 </BaseLayout>

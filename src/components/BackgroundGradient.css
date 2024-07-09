@@ -1,0 +1,25 @@
+@property --myColor1 {
+    syntax: '<color>';
+    initial-value: #0f0;
+    inherits: false;
+  }
+  
+  @property --myColor2 {
+    syntax: '<color>';
+    initial-value: rgb(40, 190, 145);
+    inherits: false;
+  }
+  
+
+.background-gradient {
+  background: var(--background-color);
+  transition: all 2s ease;
+}
+
+.background-gradient:hover {
+  background-position: 100px;
+}
+
+.background-mimic {
+    background: linear-gradient(to bottom, transparent, rgb(19, 19, 19));
+}
