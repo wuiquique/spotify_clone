@@ -1,8 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BackgroundGradient from "../components/BackgroundGradient.jsx";
+import MadeForYou from "../components/MadeForYou.astro";
 
-import { data } from "../lib/data";
+import { data, foryou } from "../lib/data";
 
 let color = data[0].mainColor;
 
@@ -15,7 +16,7 @@ const setColor = (valor) => {
   <div id="main-container" class="relative transition-all duration-1000">
     <!-- Rect Data -->
     <BackgroundGradient data={data} client:load />
-      <!-- Nav -->
-      
+    <!-- Nav -->
+    <MadeForYou data={foryou} />
   </div>
 </BaseLayout>

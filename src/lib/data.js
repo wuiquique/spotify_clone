@@ -1,5 +1,32 @@
 import { colors } from "./colors.js";
 
+export const foryou = [
+  {
+    id: "1",
+    title: "Daily Mix 1",
+    cover: "https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb9ad50e478a469448c6f369df/1/en/default",
+    artists: ["Bad Bunny", "Tainy", "more"]
+  },
+  {
+    id: "2",
+    title: "Daily Mix 2",
+    cover: "https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb4293385d324db8558179afd9/2/en/default",
+    artists: ["Drake", "Metro Boomin", "more"]
+  },
+  {
+    id: "3",
+    title: "Daily Mix 3",
+    cover: "https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebb50d43598b9074f0d6146127/3/en/default",
+    artists: ["Tainy", "Latin Mafia", "more"]
+  },
+  {
+    id: "4",
+    title: "Daily Mix 4",
+    cover: "https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebf150017ca69c8793503c2d4f/4/en/default",
+    artists: ["David Guetta", "Afrojack", "more"]
+  },
+]
+
 export const data = [
   {
     id: "0",

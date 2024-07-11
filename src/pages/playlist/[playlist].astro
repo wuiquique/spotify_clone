@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export function getStaticPaths() {
+  return [
+    { params: { playlist: "0" } },
+    { params: { playlist: "1" } },
+    { params: { playlist: "2" } },
+  ];
+}
+
+const { playlist } = Astro.params;
+---
+
+<BaseLayout>
+    <div id="main-container" class="relative transition-all duration-1000 px-10">
+        ola
+    </div>
+</BaseLayout>

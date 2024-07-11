@@ -1,0 +1,26 @@
+---
+import PlayIcon from "../Icons/PlayIcon.jsx";
+
+const { item } = Astro.props;
+
+let artistsFormat = "";
+const lf = new Intl.ListFormat("en");
+artistsFormat = lf.format(item.artists);
+---
+
+<div
+  class="group bg-colorbg-card hover:bg-colorbg-card-hover w-64 h-[340px] rounded-lg p-3 relative"
+>
+  <picture>
+    <img src={item.cover} alt={`${item.title} picture`} class="rounded-lg" />
+  </picture>
+  <h4 class="text-white font-light pt-2">{item.title}</h4>
+  <h5 class="text-color-basic-text font-light text-sm">{artistsFormat}</h5>
+  <button
+    class="aspect-square h-14 bg-spotify-green rounded-full flex justify-center items-center shadow-md shadow-colorbg-card opacity-0 group-hover:opacity-100 hover:h-[60px] absolute right-5 bottom-28 transition-all duration-300"
+  >
+    <div class="aspect-square h-2/5">
+      <PlayIcon />
+    </div>
+  </button>
+</div>

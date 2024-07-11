@@ -16,7 +16,7 @@ function BackgroundGradient({ data }) {
     <div className="background-gradient h-full relative">
       <div className="background-mimic h-full w-full absolute top-0 left-0"></div>
       <NavButtons />
-      <div className="w-full flex justify-center flex-wrap gap-4 pt-10 pb-10">
+      <div className="w-full flex justify-center flex-wrap gap-4 pt-10 pb-14">
         {data.slice(0, 8).map((e, i) => (
           <PlaylistItemRect
             key={i}
