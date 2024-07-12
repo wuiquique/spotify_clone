@@ -4,37 +4,43 @@ export const foryou = [
   {
     id: "1",
     title: "Daily Mix 1",
-    cover: "https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb9ad50e478a469448c6f369df/1/en/default",
-    artists: ["Bad Bunny", "Tainy", "more"]
+    cover:
+      "https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb9ad50e478a469448c6f369df/1/en/default",
+    artists: ["Bad Bunny", "Tainy", "more"],
   },
   {
     id: "2",
     title: "Daily Mix 2",
-    cover: "https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb4293385d324db8558179afd9/2/en/default",
-    artists: ["Drake", "Metro Boomin", "more"]
+    cover:
+      "https://dailymix-images.scdn.co/v2/img/ab6761610000e5eb4293385d324db8558179afd9/2/en/default",
+    artists: ["Drake", "Metro Boomin", "more"],
   },
   {
     id: "3",
     title: "Daily Mix 3",
-    cover: "https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebb50d43598b9074f0d6146127/3/en/default",
-    artists: ["Tainy", "Latin Mafia", "more"]
+    cover:
+      "https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebb50d43598b9074f0d6146127/3/en/default",
+    artists: ["Tainy", "Latin Mafia", "more"],
   },
   {
     id: "4",
     title: "Daily Mix 4",
-    cover: "https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebf150017ca69c8793503c2d4f/4/en/default",
-    artists: ["David Guetta", "Afrojack", "more"]
+    cover:
+      "https://dailymix-images.scdn.co/v2/img/ab6761610000e5ebf150017ca69c8793503c2d4f/4/en/default",
+    artists: ["David Guetta", "Afrojack", "more"],
   },
-]
+];
 
 export const data = [
   {
     id: "0",
     title: "Liked Songs",
-    cover: "https://misc.scdn.co/liked-songs/liked-songs-64.png",
+    cover:
+      "https://i1.sndcdn.com/artworks-y6qitUuZoS6y8LQo-5s2pPA-t500x500.jpg",
     songCount: 4321,
     type: "liked",
-    mainColor: "rgba(57, 0, 234, 0.3)"
+    mainColor: "rgba(57, 0, 234, 0.3)",
+    bgColor: "rgba(57, 0, 234, 0.7)",
   },
   {
     id: "1",
@@ -45,7 +51,8 @@ export const data = [
       "https://vinyl.lofirecords.com/cdn/shop/products/VINYL_MORNING_COFFEE_4-min.png?v=1680526353",
     artists: ["NoSpirit", "Casiio"],
     type: "playlist",
-    mainColor: "rgba(75, 42, 26, 0.9)"
+    mainColor: "rgba(75, 42, 26, 0.9)",
+    bgColor: "rgb(75, 42, 26)",
   },
   {
     id: "2",
@@ -56,14 +63,16 @@ export const data = [
       "https://vinyl.lofirecords.com/cdn/shop/files/2amsynth-vinyl.png?v=1693312187",
     artists: ["Kupla", "Blue Fox"],
     type: "playlist",
-    mainColor: "rgba(33, 0, 67, 0.8)"
+    mainColor: "rgba(33, 0, 67, 0.8)",
+    bgColor: "rgb(33, 0, 67)",
   },
   {
     id: "7",
     name: "Fred again..",
     img: "https://i.scdn.co/image/ab6761610000e5eb69eea22d7189af21794f3043",
     type: "artist",
-    mainColor: "rgba(68, 86, 74, 0.8)"
+    mainColor: "rgba(68, 86, 74, 0.8)",
+    bgColor: "rgb(68, 86, 74)",
   },
   {
     id: "3",
@@ -73,14 +82,16 @@ export const data = [
     cover: "https://f4.bcbits.com/img/a1435058381_65.jpg",
     artists: ["Tenno", "xander", "Team Astro"],
     type: "playlist",
-    mainColor: "rgba(225, 62, 91, 0.4)"
+    mainColor: "rgba(225, 62, 91, 0.4)",
+    bgColor: "rgb(225, 62, 91)",
   },
   {
     id: "8",
     name: "Latin Mafia",
     img: "https://i.scdn.co/image/ab6761610000e5eb1c2f7567729595047a38a622",
     type: "artist",
-    mainColor: "rgba(148, 163, 171, 0.4)"
+    mainColor: "rgba(148, 163, 171, 0.4)",
+    bgColor: "rgb(148, 163, 171)",
   },
   {
     id: "6",
@@ -90,7 +101,8 @@ export const data = [
     cover: "https://f4.bcbits.com/img/a0363730459_16.jpg",
     artists: ["WFS", "Nadav Cohen"],
     type: "playlist",
-    mainColor: "rgba(247, 147, 38, 0.4)"
+    mainColor: "rgba(247, 147, 38, 0.4)",
+    bgColor: "rgb(247, 147, 38)",
   },
   {
     id: "9",
@@ -98,7 +110,8 @@ export const data = [
     artists: ["Drake"],
     cover: "https://i.scdn.co/image/ab67616d0000b273cd945b4e3de57edd28481a3f",
     type: "album",
-    mainColor: "rgba(255, 255, 255, 0.4)"
+    mainColor: "rgba(255, 255, 255, 0.4)",
+    bgColor: "rgb(255, 255, 255)",
   },
   {
     id: "10",

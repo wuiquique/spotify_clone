@@ -1,0 +1,43 @@
+---
+import CheckIcon from "../Icons/CheckIcon.astro";
+import TripleDotIcon from "../Icons/TripleDotIcon.astro";
+
+const { item, index } = Astro.props;
+
+let artistsFormat = "";
+const lf = new Intl.ListFormat("en");
+artistsFormat = lf.format(item.artists);
+---
+
+<tr
+  class="group h-14 items-center rounded-md hover:bg-white hover:bg-opacity-20"
+>
+  <td class="text-right pe-3">{index + 1}</td>
+  <td class="flex items-center">
+    <img src={item.image} class="object-cover w-10 h-10 rounded-md mt-1" />
+    <div class="flex flex-col ps-2">
+      <h5
+        class="text-white font-light text-base mt-1 hover:underline hover:cursor-pointer"
+      >
+        {item.title}
+      </h5>
+      <h6 class="text-color-basic-text font-light text-sm">
+        {artistsFormat}
+      </h6>
+    </div>
+  </td>
+  <td class="font-light hover:text-white hover:underline hover:cursor-pointer"
+    >{item.album}</td
+  >
+  <td class="text-end pe-10 relative">
+    <div
+      class="absolute bottom-5 right-24 fill-check-green opacity-0 group-hover:opacity-100 hover:cursor-pointer"
+    >
+      <CheckIcon />
+    </div>
+    <span>{item.duration}</span>
+    <div class="absolute bottom-5 right-3 fill-white opacity-0 group-hover:opacity-100 hover:cursor-pointer">
+      <TripleDotIcon />
+    </div>
+  </td>
+</tr>

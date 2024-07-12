@@ -1,19 +1,122 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { data, songs } from "../../lib/data";
+import NavButtons from "../../components/NavButtons";
+import PlayIcon from "../../Icons/PlayIcon";
+import ListIcon from "../../Icons/ListIcon.astro";
+import ClockIcon from "../../Icons/ClockIcon.astro";
+import TableItem from "../../components/TableItem.astro";
 
 export function getStaticPaths() {
   return [
     { params: { playlist: "0" } },
     { params: { playlist: "1" } },
     { params: { playlist: "2" } },
+    { params: { playlist: "3" } },
+    { params: { playlist: "6" } },
   ];
 }
 
 const { playlist } = Astro.params;
+
+const item = data.find((p) => p.id === playlist);
+
+let artistsFormat = "";
+const lf = new Intl.ListFormat("en");
+artistsFormat = lf.format(item.artists);
 ---
 
 <BaseLayout>
-    <div id="main-container" class="relative transition-all duration-1000 px-10">
-        ola
+  <div
+    id="main-container"
+    class="relative transition-all duration-1000 min-h-full"
+  >
+    <div
+      class="w-full h-[500px] absolute flex flex-col"
+      style=`background: linear-gradient(to bottom, ${item.bgColor}, rgb(19, 19, 19));`
+    >
     </div>
+    <div class="relative">
+      <!-- Nav -->
+      <NavButtons />
+
+      <!-- Header -->
+      <div class="pt-6 px-10 flex items-end">
+        <picture class="w-60 h-60">
+          <img
+            src={item.cover}
+            alt={`Cover of ${item.title} by ${artistsFormat}`}
+            class="object-cover w-full h-full rounded-md"
+          />
+        </picture>
+        <div class="flex flex-col ps-6">
+          <h6 class="text-white text-sm font-light pb-4">Playlist</h6>
+          <h1 class="text-white text-8xl font-extrabold pb-4">{item.title}</h1>
+          <div class="flex items-center">
+            <picture class="w-6 h-6">
+              <img
+                src={item.songCount
+                  ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS92T_gtiiVXrGZSItnKRAHiCB7WwQYTPPVqA&usqp=CAU"
+                  : "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"}
+                class="object-cover w-full h-full rounded-full"
+              />
+            </picture>
+            <h5
+              class="text-white text-md font-normal ps-1 hover:underline hover:cursor-pointer"
+            >
+              {
+                item.songCount ? (
+                  <span>
+                    Luis Enrique Menendez ·{" "}
+                    <span class="font-light">{item.songCount} songs</span>
+                  </span>
+                ) : (
+                  artistsFormat
+                )
+              }
+            </h5>
+          </div>
+        </div>
+      </div>
+      <!-- Content Buttons -->
+      <div
+        class="flex-1 bg-colorbg-card-opacity bg-opacity-40 w-full h-full mt-6 px-10"
+      >
+        <div class="flex pt-6 items-center">
+          <div class="flex-1">
+            <button
+              class="relative aspect-square h-14 bg-spotify-green rounded-full flex justify-center items-center shadow-md shadow-colorbg-card hover:h-[60px] transition-all duration-300"
+            >
+              <div class="aspect-square h-2/5">
+                <PlayIcon />
+              </div>
+            </button>
+          </div>
+          <div
+            class="text-color-basic-text text-sm font-light flex items-center fill-color-basic-text hover:fill-white hover:text-white hover:cursor-pointer"
+          >
+            List &nbsp;
+            <ListIcon />
+          </div>
+        </div>
+        <!-- Content Table -->
+        <div class="pt-6 w-full">
+          <table class="text-color-basic-text text-sm w-full">
+            <thead class="after:h-4 after:content-normal after:block">
+              <tr class="border-b-2 border-zinc-800 h-8">
+                <th class="font-light text-right pe-2 w-10">#</th>
+                <th class="font-light text-left">Title</th>
+                <th class="font-light text-left">Album</th>
+                <th class="fill-color-basic-text flex justify-end pt-2 pe-10"><ClockIcon /></th>
+              </tr>
+            </thead>
+            <!-- espacio aqui -->
+            <tbody>
+              {songs.map((e, i) => <TableItem item={e} index={i} />)}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </BaseLayout>
